@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Serif_JP } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const notoSerifJP = Noto_Serif_JP({
@@ -26,7 +27,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${notoSerifJP.variable} antialiased`}>{children}</body>
+      <body className={`${notoSerifJP.variable} antialiased`}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
